@@ -1,0 +1,30 @@
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(at 20% 20%, hsl(0, 0%, 100%), hsl(245, 100%, 50%), hsl(0, 100%, 50%));
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    cursor: pointer;
+}
+
+img {
+    max-width: 300px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: normal;
+}

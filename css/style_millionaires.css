@@ -1,0 +1,12 @@
+body {
+    height: 100vh;
+    background: radial-gradient(at 20% 20%, rgba(241, 102, 188, 0.575), rgb(83, 12, 77), rgb(21, 0, 255));
+}
+
+.media img {
+    border-radius: 50%;
+}
+
+.overlay {
+    background: radial-gradient(at 20% 20%, rgba(21, 0, 255, 0.5), rgba(241, 102, 188, 0.5) );
+}

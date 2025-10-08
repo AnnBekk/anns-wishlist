@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Самое сложное</title>
+    <link rel="icon" href="../img/catch_pic.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style_hardest.css">
+</head>
+<body>
+  <!-- Гифка -->
+  <img id="gif" src="../img/music.gif" alt="Анимация с нотами">
+
+  <!-- Текст -->
+  <h1> (тык☝️) <br> Думаю, тут можно без пояснений? </h1>
+
+  <!-- Музыка -->
+  <audio id="music" autoplay muted loop>
+    <source src="../mp3/matushka-zemlya.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает аудио.
+  </audio>
+
+  <script>
+    const gif = document.getElementById("gif");
+    const music = document.getElementById("music");
+
+    gif.addEventListener("click", () => {
+      music.muted = false; // включаем звук
+      music.play();        // запускаем воспроизведение
+    });
+  </script>
+</body>
+</html>

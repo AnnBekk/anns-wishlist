@@ -1,0 +1,108 @@
+body{
+    background: rgb(32 84 22 / 38%);
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  max-width: 95vw;
+  margin: 0 auto;
+  gap: 15px; /* расстояние между гифками */
+}
+
+.item {
+  flex: 1;              
+  text-align: center; 
+  opacity: 0;
+  transform: translateY(-20px); /* немного выше */
+  animation: fadeIn 0.8s ease forwards; /* включаем анимацию */
+}
+
+.media {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Сдвигаем вниз */
+.item:nth-child(2) {
+  animation: waveDown30 1s ease forwards;
+}
+
+.item:nth-child(3) {
+  animation: waveDown60 1s ease forwards;
+}
+
+.item:nth-child(4) {
+  animation: waveDown90 1s ease forwards;
+}
+
+/* Анимация для появления обычных */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Анимация — сдвиг вниз */
+@keyframes waveDown30 {
+  to {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+}
+
+@keyframes waveDown60 {
+  to {
+    opacity: 1;
+    transform: translateY(60px);
+  }
+}
+
+@keyframes waveDown90 {
+  to {
+    opacity: 1;
+    transform: translateY(90px);
+  }
+}
+/* Чтобы анимации шли по очереди, можно добавить задержку */
+.item:nth-child(1) { animation-delay: 0s; }
+.item:nth-child(2) { animation-delay: 0.2s; }
+.item:nth-child(3) { animation-delay: 0.4s; }
+.item:nth-child(4) { animation-delay: 0.6s; }
+
+.media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* всегда равен картинке */
+  background: rgba(0,0,0,0.7);
+  color: white;
+  display: flex; /* удобно центрировать */
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  opacity: 0; /* изначально невидим */
+  transition: opacity 0.3s ease;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* При наведении скрываем картинку и показываем текст */
+.media:hover img {
+  opacity: 0;
+}
+
+.media:hover .overlay {
+  opacity: 1;
+}

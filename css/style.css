@@ -1,0 +1,188 @@
+/* ===== Общие стили ===== */
+body {
+    height: 100vh;
+    background: #0b0f1a;
+    color: white;
+    font-family: sans-serif;
+}
+
+.scene{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.central{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 40vw;
+    z-index: 1;
+}
+
+.center-img {
+    width: 25vh;
+}
+
+.speech {
+    text-align: center;
+}
+
+#show-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #3fa9f5;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+#show-btn:hover {
+    background: #2b82c7;
+}
+
+/* ===== Солнечная система ===== */
+.solar-system {
+    position: relative;
+    width: 0;
+    height: 0;
+    z-index: 10;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.solar-system.active {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+}
+
+/* ===== Орбиты ===== */
+.orbit {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px dashed rgba(255,255,255,0.3);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Планета */
+.planet {
+    width: 100px;
+    height: 100px;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: orange;
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 0; left: 50%;
+    padding: 5px;
+    transform: translate(-50%, -50%);
+}
+
+.orbit:nth-child(1) .planet {
+    background: radial-gradient(at 30% 40%, hsl(245, 100%, 70%), hsl(245, 100%, 60%), hsl(245, 100%, 50%));
+}
+
+.orbit:nth-child(2) .planet {
+    background: radial-gradient(at 30% 40%, rgb(63, 224, 31), rgb(21, 0, 255));
+}
+
+.orbit:nth-child(3) .planet {
+    background: radial-gradient(at 30% 40%, rgb(126, 241, 102), rgb(2, 29, 5));
+}
+
+.orbit:nth-child(4) .planet {
+    background: radial-gradient(at 40% 40%, rgb(126, 241, 102), rgba(241, 102, 188, 0.575), rgb(83, 12, 77));
+}
+
+.orbit:nth-child(5) .planet {
+    background: radial-gradient(at 10% 10%, rgb(241, 102, 188), rgb(83, 12, 77));
+}
+
+.orbit:nth-child(6) .planet {
+    background: radial-gradient(at 30% 20%, rgb(241, 102, 188),  rgb(126, 241, 102), hsl(0, 100%, 50%));
+}
+
+.orbit:nth-child(7) .planet {
+    background: radial-gradient(at 20% 20%, hsl(0, 0%, 100%), hsl(245, 100%, 50%), hsl(0, 100%, 50%));
+}
+
+/* ===== Задаём размеры орбит и анимацию ===== */
+.orbit:nth-child(1) {
+    width: 35vh;
+    height: 35vh;
+    z-index: 80;
+    transition-delay: 0.2s;
+    animation: rotate 8s linear infinite; /* медленно вращается */
+}
+.orbit:nth-child(2) {
+    width: 45vh;
+    height: 45vh;
+    z-index: 70;
+    transition-delay: 0.4s;
+    animation: rotate 11s linear infinite; /* ещё медленнее */
+}
+.orbit:nth-child(3) {
+    width: 55vh;
+    height: 55vh;
+    z-index: 60;
+    transition-delay: 0.6s;
+    animation: rotate 14s linear infinite;
+}
+.orbit:nth-child(4) {
+    width: 65vh;
+    height: 65vh;
+    z-index: 50;
+    transition-delay: 0.8s;
+    animation: rotate 18s linear infinite;
+}
+.orbit:nth-child(5) {
+    width: 75vh;
+    height: 75vh;
+    z-index: 40;
+    transition-delay: 1s;
+    animation: rotate 23s linear infinite;
+}
+.orbit:nth-child(6) {
+    width: 85vh;
+    height: 85vh;
+    z-index: 30;
+    transition-delay: 1.2s;
+    animation: rotate 28s linear infinite;
+}
+.orbit:nth-child(7) {
+    width: 95vh;
+    height: 95vh;
+    z-index: 20;
+    transition-delay: 1.4s;
+    animation: rotate 33s linear infinite;
+}
+
+/* Когда система активна — орбиты проявляются */
+.solar-system.active .orbit {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ===== Ключевые кадры вращения ===== */
+/* Орбита сама крутится вокруг центра,
+   а вместе с ней крутится и планета */
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+}

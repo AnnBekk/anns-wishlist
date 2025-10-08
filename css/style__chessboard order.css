@@ -1,0 +1,91 @@
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    max-width: 95vw;
+    margin: 0 auto;
+    gap: 15px; /* расстояние между картинками */
+}
+
+.item {
+    flex: 1;              
+    text-align: center; 
+    opacity: 0;
+    transform: translateY(-20px); /* немного выше */
+}
+
+.media {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.item:nth-child(odd) {
+    animation: fadeIn 2s ease forwards; /* включаем анимацию */
+}
+
+/* Сдвигаем вниз четные*/
+.item:nth-child(even) {
+    animation: fadeIn 1s ease forwards; /* включаем анимацию */
+    animation: waveDown 1s ease forwards;
+}
+
+/* Анимация для появления обычных */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анимация — сдвиг вниз */
+@keyframes waveDown {
+    to {
+        opacity: 1;
+        transform: translateY(75%);
+    }
+}
+
+.media img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* всегда равен картинке */
+    background: rgba(11, 225, 170,0.8);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: 0; /* изначально невидим */
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.overlay a {
+  display: inline;           /* ссылка остаётся словом */
+  text-decoration: none;     
+  color: yellow;             
+  font-weight: bold;
+}
+
+.overlay a:hover {
+  text-decoration: underline; /* подсветка при наведении */
+}
+
+/* При наведении скрываем картинку и показываем текст */
+.media:hover img {
+    opacity: 0;
+}
+
+.media:hover .overlay {
+    opacity: 1;
+}
