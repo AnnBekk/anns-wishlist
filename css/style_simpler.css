@@ -27,10 +27,15 @@ p {
     text-align: center;
 }
 
+.options:has(.option:only-child) {
+    justify-content: center;
+}
+
 .option img {
     display: block;
     width: 80%;
     margin: auto;
+    border-radius: 5%;
 }
 
 .overlay a {
